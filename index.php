@@ -1,6 +1,12 @@
 <?php
 session_start();
-// You can include PHP logic or functions here if needed
+
+// Check if the user is logged in by checking the session variable
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Redirect to sign-in page if not logged in
+    header("Location: signin.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
